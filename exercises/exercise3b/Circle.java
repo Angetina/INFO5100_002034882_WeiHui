@@ -1,6 +1,7 @@
-package exercise2;
+package exercise3b;
 
 class Circle extends Shape {
+    private static final long serialVersionUID = 1L;
     private double radius;
 
     public Circle(double radius) {

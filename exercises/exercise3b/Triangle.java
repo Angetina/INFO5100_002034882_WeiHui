@@ -1,6 +1,8 @@
-package exercise2;
+package exercise3b;
 
 class Triangle extends Shape{
+    private static final long serialVersionUID = 1L;
+
     private double base, height, side1, side2;
 
     public Triangle(double base, double height, double side1, double side2){

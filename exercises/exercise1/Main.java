@@ -1,3 +1,5 @@
+package exercise1;
+
 import java.util.Random;
 
 public class Main {
@@ -5,7 +7,6 @@ public class Main {
         Session session = new Session();
         Random random = new Random();
 
-        // 建立 20 位學生（部分 Part-Time，部分 Full-Time）
         for (int i = 1; i <= 20; i++) {
             if (i % 2 == 0) {
                 FullTimeStudent fullTimeStudent = new FullTimeStudent("Student" + i);
@@ -23,7 +24,6 @@ public class Main {
             }
         }
 
-        // 執行所有方法
         session.printAverageQuizScores();
         session.printSortedQuizScores();
         session.printPartTimeStudents();

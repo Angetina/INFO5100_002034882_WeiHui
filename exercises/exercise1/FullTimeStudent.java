@@ -1,3 +1,5 @@
+package exercise1;
+
 public class FullTimeStudent extends Student {
     private int exam1;
     private int exam2;
