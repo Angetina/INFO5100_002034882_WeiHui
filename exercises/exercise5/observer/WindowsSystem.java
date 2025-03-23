@@ -1,6 +1,6 @@
 package exercises.exercise5.observer;
 
-import exercises.exercise5.Observer;
+import exercises.exercise5.observer.Observer;
 import java.util.ArrayList;
 import java.util.List;
 
