@@ -1,0 +1,31 @@
+{
+  "book": [
+    {
+      "id": "01",
+      "language": "Java",
+      "edition": "thirteenth",
+      "title": "Java: The Complete Reference",
+      "publishedYear": 2021,
+      "numberOfPages": 1248,
+      "authors": ["Herbert Schildt"]
+    },
+    {
+      "id": "02",
+      "language": "C++",
+      "edition": "sixth",
+      "title": "Object Oriented Programming with C++",
+      "publishedYear": 2017,
+      "numberOfPages": 672,
+      "authors": ["E. Balagurusamy"]
+    },
+    {
+      "id": "03",
+      "language": "Python",
+      "edition": "third",
+      "title": "Learn Python the Hard Way",
+      "publishedYear": 2013,
+      "numberOfPages": 320,
+      "authors": ["Zed A.Shaw"]
+    }
+  ]
+}

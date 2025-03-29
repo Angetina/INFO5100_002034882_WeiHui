@@ -1,0 +1,35 @@
+<BookShelf>
+    <Book>
+        <id>01</id>
+        <language>Java</language>
+        <edition>thirteenth</edition>
+        <title>Java: The Complete Reference</title>
+        <publishedYear>2021</publishedYear>
+        <numberOfPages>1248</numberOfPages>
+        <authors>
+            <author>Herbert Schildt</author>
+        </authors>
+    </Book>
+    <Book>
+        <id>02</id>
+        <language>C++</language>
+        <edition>sixth</edition>
+        <title>Object Oriented Programming with C++</title>
+        <publishedYear>2017</publishedYear>
+        <numberOfPages>672</numberOfPages>
+        <authors>
+            <author>E. Balagurusamy</author>
+        </authors>
+    </Book>
+    <Book>
+        <id>03</id>
+        <language>Python</language>
+        <edition>third</edition>
+        <title>Learn Python the Hard Way</title>
+        <publishedYear>2013</publishedYear>
+        <numberOfPages>320</numberOfPages>
+        <authors>
+            <author>Zed A. Shaw</author>
+        </authors>
+    </Book>
+</BookShelf>
