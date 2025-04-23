@@ -1,56 +1,50 @@
 package com.example.finalproject_imagemanager.controller;
 
-//Handles image conversion (using design pattern).
 import com.example.finalproject_imagemanager.interfaces.IImageConverter;
+import com.example.finalproject_imagemanager.model.ImageFile;
+import com.example.finalproject_imagemanager.model.ImageMetadata;
+import com.example.finalproject_imagemanager.utils.GeoLocationService;
 import com.example.finalproject_imagemanager.utils.ImageConverterFactory;
-
-//UI Control Tools
-import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
-import javafx.stage.FileChooser;
-import javafx.collections.FXCollections;
-
-//Process image reading, conversion, output and other functions.
-import javax.imageio.ImageIO;
+import com.example.finalproject_imagemanager.utils.ImageFilterUtils;
+import com.example.finalproject_imagemanager.utils.ImageMetadataExtractor;
 import java.awt.*;
-import java.io.File;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import javafx.collections.FXCollections;
 import javafx.embed.swing.SwingFXUtils;
-
-//Image data model, metadata extractor, filter tool
-import com.example.finalproject_imagemanager.model.ImageFile;
-import com.example.finalproject_imagemanager.utils.ImageMetadataExtractor;
-import com.example.finalproject_imagemanager.model.ImageMetadata;
-import com.example.finalproject_imagemanager.utils.GeoLocationService;
-import com.example.finalproject_imagemanager.utils.ImageFilterUtils;
+import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 
-import java.awt.Desktop;
-
+//Controller for handling image conversion and preview logic
 public class MainController {
     //Bind the component fields in main-view.fxml
-    @FXML private ImageView thumbnailOriginalView;
-    @FXML private ImageView thumbnailConvertedView;
-    @FXML private TextArea imageInfoLabel;
-    @FXML private ComboBox<String> formatChoiceBox;
-    @FXML private ComboBox<String> filterChoiceBox;
+    @FXML
+    private ImageView thumbnailOriginalView;
+    @FXML
+    private ImageView thumbnailConvertedView;
+    @FXML
+    private TextArea imageInfoLabel;
+    @FXML
+    private ComboBox<String> formatChoiceBox;
+    @FXML
+    private ComboBox<String> filterChoiceBox;
 
-    //Aautomatically executes initialize() after the screen is loaded.
+    //Automatically executes initialize() after the screen is loaded.
     @FXML
     private void initialize() {
         //Settings Format and Filter drop-down options
         formatChoiceBox.setItems(FXCollections.observableArrayList("jpg", "png", "bmp"));
         filterChoiceBox.setItems(FXCollections.observableArrayList("No filter", "Black and White", "Brightness +50", "Warm colors", "Cool colors"));
     }
-
     @FXML
     private void handleChooseImage() {
         //Step 1: Use FileChooser to let the user select an image.
@@ -65,17 +59,17 @@ public class MainController {
             currentSelectedFile = selectedFile;
 
             //Step 2:Show thumbnails (automatically scaled down to 100x100)
-            try{
+            try {
                 Image originalImage = new Image(new FileInputStream(selectedFile), 100, 100, true, true);
                 thumbnailOriginalView.setImage(originalImage);
                 thumbnailConvertedView.setImage(null);
-            }catch (FileNotFoundException e){
+            } catch (FileNotFoundException e) {
                 e.printStackTrace();
                 imageInfoLabel.setText("Image not found");
             }
 
             //Step 3:Use ImageFile to get the basic properties of images
-            try{
+            try {
                 ImageFile imageFile = new ImageFile(selectedFile);
                 int width = imageFile.getWidth();
                 int height = imageFile.getHeight();
@@ -93,21 +87,22 @@ public class MainController {
                 //Show image properties
                 displayImageInfo(fileName, width, height, dateTaken, cameraModel, location);
 
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
                 imageInfoLabel.setText("Failed to read image or metadata");
             }
         }
     }
+
     //Combine the information and display it on the screen.
     private void displayImageInfo(String fileName, int width, int height, String dateTaken, String cameraModel, String location) {
         String info = String.format("""
-         File Name: %s
-         Size: %d x %d
-         Photo time: %s
-         Camera Model: %s
-         Locations: %s
-         """, fileName, width, height, dateTaken, cameraModel, location);
+                File Name: %s
+                Size: %d x %d
+                Photo time: %s
+                Camera Model: %s
+                Locations: %s
+                """, fileName, width, height, dateTaken, cameraModel, location);
 
         imageInfoLabel.setText(info);
     }
@@ -173,21 +168,22 @@ public class MainController {
 
             // Step 7:Display results and automatically open the image
             if (success) {
-                imageInfoLabel.setText("Image has been converted to "+selectedFormat+"\nstored as: "+outputFile.getAbsolutePath());
+                imageInfoLabel.setText("Image has been converted to " + selectedFormat + "\nstored as: " + outputFile.getAbsolutePath());
                 //Automatically open image files
                 //Display the converted thumbnails to the right
                 Desktop.getDesktop().open(outputFile);
                 BufferedImage convertedImage = ImageIO.read(outputFile);
                 Image convertedPreview = SwingFXUtils.toFXImage(convertedImage, null);
                 thumbnailConvertedView.setImage(convertedPreview);
-            }else {
+            } else {
                 imageInfoLabel.setText("Failed to convert image");
             }
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
             imageInfoLabel.setText("Failed to convert image");
         }
     }
+
     //Preview the image after pressing "Apply Filter"
     @FXML
     private void handlePreview() {
