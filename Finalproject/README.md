@@ -37,3 +37,8 @@ This is a JavaFX-based desktop application that helps users upload, preview, edi
 ### Exception Handling
 - Handles `IOException`, `FileNotFoundException`, and missing metadata gracefully.
 - Errors are shown in an alert box instead of crashing the app.
+
+## Demo Videos
+
+- Demo 1: https://youtu.be/RgwKZAl8Ybw
+- Demo 2: https://youtu.be/XdEwPNeFxok
