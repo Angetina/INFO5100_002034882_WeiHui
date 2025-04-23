@@ -1,0 +1,21 @@
+{
+  "cashBalance": 10023.0,
+  "holdings": [
+    {
+      "symbol": "IBM",
+      "shares": 10,
+      "averagePurchasePrice": -1.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 5,
+      "averagePurchasePrice": -1.0
+    },
+    {
+      "symbol": "AAPL",
+      "shares": 8,
+      "averagePurchasePrice": -1.0
+    }
+  ],
+  "watchlistSymbols": []
+}

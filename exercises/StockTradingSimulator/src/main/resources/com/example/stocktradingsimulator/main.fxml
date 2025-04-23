@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.stocktradingsimulator.MainController">
+
+    <!-- Watchlist section on the left -->
+    <left>
+        <VBox spacing="10.0">
+            <padding>
+                <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+            </padding>
+            <Label text="Watchlist"/>
+            <TableView fx:id="watchlistTable" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="watchlistSymbolColumn" text="Symbol"/>
+                    <TableColumn fx:id="watchlistPriceColumn" text="Price"/>
+                </columns>
+            </TableView>
+            <HBox spacing="5">
+                <TextField fx:id="watchlistInput" promptText="Enter symbol"/>
+                <Button text="Add" onAction="#handleAddWatchlist"/>
+            </HBox>
+        </VBox>
+    </left>
+
+    <!-- Middle Portfolio Block -->
+    <center>
+        <VBox spacing="10.0">
+            <padding>
+                <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+            </padding>
+            <Label text="Portfolio"/>
+            <TableView fx:id="portfolioTable" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="symbolColumn" text="Symbol"/>
+                    <TableColumn fx:id="sharesColumn" text="Shares"/>
+                    <TableColumn fx:id="avgPriceColumn" text="Avg Price"/>
+                    <TableColumn fx:id="currentPriceColumn" text="Current Price"/>
+                    <TableColumn fx:id="totalValueColumn" text="Total"/>
+                    <TableColumn fx:id="profitLossColumn" text="Profit/Loss"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="5">
+                <TextField fx:id="buySellSymbolInput" promptText="Symbol"/>
+                <TextField fx:id="sharesInput" promptText="Shares"/>
+                <Button text="Buy" onAction="#handleBuy"/>
+                <Button text="Sell" onAction="#handleSell"/>
+            </HBox>
+        </VBox>
+    </center>
+
+
+    <!-- Right side information block -->
+    <right>
+        <VBox spacing="10.0">
+            <padding>
+                <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+            </padding>
+            <Label text="Account Info"/>
+            <Label fx:id="cashBalanceLabel" text="Cash: $10000"/>
+            <Label fx:id="portfolioValueLabel" text="Portfolio Value: $0"/>
+            <Label fx:id="profitLossLabel" text="Profit/Loss: $0"/>
+            <Separator/>
+            <Button text="Save" onAction="#handleSave"/>
+            <Button text="Load" onAction="#handleLoad"/>
+        </VBox>
+    </right>
+
+
+</BorderPane>
+
