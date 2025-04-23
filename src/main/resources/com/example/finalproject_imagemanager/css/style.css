@@ -1,0 +1,64 @@
+/*Global font settings*/
+.root {
+    -fx-font-family: "Noto Sans", "Roboto", "Arial", sans-serif;
+    -fx-font-size: 15px;
+    -fx-background-color: #1e1e1e;
+    -fx-text-fill: #e0e0e0;
+}
+/*Label settings*/
+.label {
+    -fx-text-fill: #cccccc;
+    -fx-font-size: 16px;
+    -fx-font-weight: normal;
+}
+/* Beautify TextArea */
+.text-area{
+    -fx-control-inner-background: #2a2a2a;
+    -fx-text-fill: #e0e0e0;
+    -fx-font-size: 13px;
+    -fx-border-color: #444;
+}
+.text-area .scroll-bar {
+    -fx-background-color: #2a2a2a;
+}
+.text-area .thumb {
+    -fx-background-color: #444;
+}
+/* Beautify Button */
+.button {
+    -fx-background-color: transparent;
+    -fx-border-color: #3a9cff;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 6px 12px;
+    -fx-text-fill: #3a9cff;
+    -fx-font-weight: normal;
+}
+.button:hover{
+    -fx-background-color: #3a9cff33;
+}
+.button:disabled {
+    -fx-opacity: 0.4;
+}
+/* Beautify ImageView */
+.image-view{
+    -fx-effect: dropshadow(gaussian, #00000066, 4, 0, 1, 1);
+    -fx-border-color: #444;
+    -fx-border-width: 1;
+}
+
+/*ComboBox (menu) beautification*/
+.combo-box {
+    -fx-background-color: #2a2a2a;
+    -fx-border-color: #444;
+    -fx-border-radius: 6;
+    -fx-font-size: 14px;
+    -fx-text-fill: #ffffff;
+}
+.combo-box .list-cell {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #2a2a2a;
+}
+.combo-box .list-cell:hover {
+    -fx-background-color: #3a3a3a;
+}

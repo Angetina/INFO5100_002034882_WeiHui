@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane fx:id="mainLayout" xmlns:fx="http://javafx.com./fxml"
+            fx:controller="com.example.finalproject_imagemanager.controller.MainController">
+    <!-- Apply CSS files to achieve dark style and customized styles. -->
+    <stylesheets>
+        <String fx:value="/com/example/finalproject_imagemanager/css/style.css"/>
+    </stylesheets>
+
+    <!-- Top Title -->
+    <top>
+        <Label text="Image Management Tool" style="-fx-font-size: 20px; -fx-padding: 10px;" BorderPane.alignment="CENTER"/>
+    </top>
+
+    <!-- Central Content -->
+    <center>
+        <GridPane fx:id="contentPane" hgap="20" vgap="15" alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints minWidth="150"/>
+                <ColumnConstraints minWidth="300"/>
+            </columnConstraints>
+
+            <!-- Image preview block -->
+            <Label text="Original" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Label text="Converted" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+            <ImageView fx:id="thumbnailOriginalView" fitWidth="100" fitHeight="100"
+                       GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+
+            <ImageView fx:id="thumbnailConvertedView" fitWidth="100" fitHeight="100"
+                       GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+            <!-- Image Information -->
+            <Label text="Image information:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <TextArea fx:id="imageInfoLabel" editable="false" wrapText="true" prefRowCount="5" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2"/>
+
+
+            <!-- Select Button -->
+            <Button text="Select image" onAction="#handleChooseImage" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2" GridPane.halignment="CENTER"/>
+
+            <!-- Format selection -->
+            <Label text="Format:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+            <ComboBox fx:id="formatChoiceBox" promptText="Select format" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+            <!-- Filter selection -->
+            <Label text="Filter:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+            <ComboBox fx:id="filterChoiceBox" promptText="Select filter" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+            <!-- Convert Button -->
+            <HBox spacing="10" alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                <Button text="Apply Filter and Preview" onAction="#handlePreview"/>
+                <Button text="Convert and download" onAction="#handleConvertFormat"/>
+            </HBox>
+
+        </GridPane>
+    </center>
+</BorderPane>
+
+
