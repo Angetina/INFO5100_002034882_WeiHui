@@ -12,7 +12,8 @@ public class MainApplication extends Application {
     //Defines what to display when the program starts.
     public void start(Stage stage) throws IOException {
         //Set the appearance of the UI screen and initial window
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/com/example/finalproject_imagemanager/main-view.fxml"));
+
 
         //Set the FXML screen as a Scene object with a screen size of 800x800 pixels.
         Scene scene = new Scene(fxmlLoader.load(), 800, 800);

@@ -69,18 +69,19 @@
             <version>2.10.1</version>
         </dependency>
         <dependency>
-        <groupId>org.openjfx</groupId>
-        <artifactId>javafx-swing</artifactId>
-        <version>17.0.2</version>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>17.0.2</version>
         </dependency>
 
     </dependencies>
 
     <build>
-        <sourceDirectory>Finalproject/src/main/java</sourceDirectory>
+        <sourceDirectory>java</sourceDirectory>
+
         <resources>
             <resource>
-                <directory>Finalproject/src/main/resources</directory>
+                <directory>resources</directory>
             </resource>
         </resources>
 
@@ -100,6 +101,7 @@
                 <version>0.0.8</version>
                 <executions>
                     <execution>
+                        <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
