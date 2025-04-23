@@ -77,6 +77,13 @@
     </dependencies>
 
     <build>
+        <sourceDirectory>Finalproject/src/main/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>Finalproject/src/main/resources</directory>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -93,7 +100,6 @@
                 <version>0.0.8</version>
                 <executions>
                     <execution>
-                        <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
